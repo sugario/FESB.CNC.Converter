@@ -1,6 +1,8 @@
 #include <iostream> 
 #include <string> 
 
+#include "Clock\Clock.h"
+
 void PrintUsageMessage(void)
 {
 	std::cout << "\nOptions:\n";
@@ -28,7 +30,7 @@ int main(int argc, char* argv[])
 	std::string infile = std::string();
 	std::string outfile = std::string();
 
-	//Clock clock;
+	Clock clock;
 	//Converter converter;
 
 	for (int i = 1; i < argc; i++)
@@ -111,7 +113,7 @@ int main(int argc, char* argv[])
 	//converter.ReadFromFile(infile.c_str());
 	//converter.WriteToFile(outfile.c_str());
 
-	//std::cout << "Conversion lasted: " << clock.ElapsedSeconds() << std::endl;
+	std::cout << "Conversion lasted: " << clock.ElapsedSeconds() << std::endl;
 
 	return EXIT_SUCCESS;
 }
