@@ -2,6 +2,7 @@
 #include <string> 
 
 #include "Clock\Clock.h"
+#include "Converter\Converter.h"
 
 void PrintUsageMessage(void)
 {
@@ -58,9 +59,10 @@ int main(int argc, char* argv[])
 			{
 				precision = atof(argv[i]);
 			}
-			catch (int e)
+			catch(int e)
 			{
-				std::cout << "\nERROR: precision argument not a number\n";
+				std::cout << "\nERROR: precision argument not a number";
+				std::cout << "(error: " << e << ")\n";
 				atexit(PrintUsageMessage);
 
 				return EXIT_FAILURE;
