@@ -2,7 +2,8 @@
 #include <string> 
 
 #include "Clock\Clock.h"
-#include "Converter\Converter.h"
+#include "Converter\Reader.h"
+#include "Converter\Writer.h"
 
 void PrintUsageMessage(void)
 {
@@ -32,7 +33,7 @@ int main(int argc, char* argv[])
 	std::string outfile = std::string();
 
 	Clock clock;
-	//Converter converter;
+	Writer writer;
 
 	for (int i = 1; i < argc; i++)
 	{
@@ -68,11 +69,11 @@ int main(int argc, char* argv[])
 				return EXIT_FAILURE;
 			}
 
-			//converter.SetPrecision(precision);
+			writer.SetPrecision(precision);
 		}
 		else if (currentArgument == "-m")
 		{
-			//converter.SetMirror();
+			writer.UseMirror();
 		}
 		else if (currentArgument == "-h" || currentArgument == "--help")
 		{
@@ -110,12 +111,24 @@ int main(int argc, char* argv[])
 		return EXIT_FAILURE;
 	}
 
-	std::cout << "Conversion started:\n";
+	std::cout << "Conversion started:\n\n";
 
-	//converter.ReadFromFile(infile.c_str());
-	//converter.WriteToFile(outfile.c_str());
+	Reader reader;
+	if (reader.ReadFile(infile) != IFSelect_RetDone)
+	{
+		std::cout << "Error during file reading\n";
+		return EXIT_FAILURE;
+	}
 
-	std::cout << "Conversion lasted: " << clock.ElapsedSeconds() << std::endl;
+	writer.SetShape(reader.GetShape());
+
+	if (writer.WriteToFile(outfile) != StlAPI_StatusOK)
+	{
+		std::cout << "Error while writting a file\n";
+		return EXIT_FAILURE;
+	}
+
+	std::cout << "\nConversion lasted: " << clock.ElapsedSeconds() << std::endl;
 
 	return EXIT_SUCCESS;
 }
