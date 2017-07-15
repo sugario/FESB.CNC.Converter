@@ -12,7 +12,7 @@ Reader::Reader()
 
 Reader::Reader(const std::string& aFileName)
 {
-	if (ReadFile(aFileName) != ReaderStatus::Success)
+	if (ReadFile(aFileName) != ReaderStatus::SuccessW)
 	{
 		this->aShape.Nullify();
 	}
@@ -44,7 +44,7 @@ ReaderStatus Reader::ReadFile(const std::string& aFileName)
 		return ReaderStatus::UnknownFileFormat;
 	}
 
-	return ReaderStatus::Success;
+	return ReaderStatus::SuccessW;
 }
 
 TopoDS_Shape Reader::GetShape(void)
@@ -65,7 +65,7 @@ ReaderStatus Reader::ReadBREP(const std::string& aFileName)
 	BRep_Builder aBuilder;
 	BRepTools::Read(this->aShape, aStream, aBuilder);
 
-	return ReaderStatus::Success;
+	return ReaderStatus::SuccessW;
 }
 
 ReaderStatus Reader::ReadIGES(const std::string& aFileName)
@@ -80,7 +80,7 @@ ReaderStatus Reader::ReadIGES(const std::string& aFileName)
 	aReader.TransferRoots();
 	this->aShape = aReader.OneShape();
 
-	return ReaderStatus::Success;
+	return ReaderStatus::SuccessW;
 }
 
 std::string Reader::GetFileExtension(const std::string& aFileName)
