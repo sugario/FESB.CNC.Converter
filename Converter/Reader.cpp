@@ -12,20 +12,20 @@ Reader::Reader()
 
 Reader::Reader(const std::string& aFileName)
 {
-	if (ReadFile(aFileName) != ReaderStatus::Success)
+	if (ReadFile(aFileName) != IFSelect_ReturnStatus::IFSelect_RetDone)
 	{
 		this->aShape.Nullify();
 	}
 }
 
-ReaderStatus Reader::ReadFile(const std::string& aFileName)
+IFSelect_ReturnStatus Reader::ReadFile(const std::string& aFileName)
 {
 	this->aShape.Nullify();
 	std::string extension = GetFileExtension(aFileName);
 
 	if (extension == "")
 	{
-		return ReaderStatus::ExtensionNotFound;
+		return IFSelect_ReturnStatus::IFSelect_RetFail;
 	}
 	else if (extension == "brep")
 	{
@@ -37,14 +37,15 @@ ReaderStatus Reader::ReadFile(const std::string& aFileName)
 	}
 	else if (extension == "step" || extension == "stp" || extension == "p21")
 	{
-		return ReaderStatus::NotImplemented;
+		//TO BE IMPLEMENTED!
+		return IFSelect_ReturnStatus::IFSelect_RetFail;
 	}
 	else
 	{
-		return ReaderStatus::UnknownFileFormat;
+		return IFSelect_ReturnStatus::IFSelect_RetError;
 	}
 
-	return ReaderStatus::Success;
+	return IFSelect_ReturnStatus::IFSelect_RetDone;
 }
 
 TopoDS_Shape Reader::GetShape(void)
@@ -52,35 +53,35 @@ TopoDS_Shape Reader::GetShape(void)
 	return this->aShape;
 }
 
-ReaderStatus Reader::ReadBREP(const std::string& aFileName)
+IFSelect_ReturnStatus Reader::ReadBREP(const std::string& aFileName)
 {
 	std::filebuf aFileBuf;
 	std::istream aStream(&aFileBuf);
 
 	if (!aFileBuf.open(aFileName, ios::in))
 	{
-		return ReaderStatus::FileNotFound;
+		return IFSelect_ReturnStatus::IFSelect_RetError;
 	}
 
 	BRep_Builder aBuilder;
 	BRepTools::Read(this->aShape, aStream, aBuilder);
 
-	return ReaderStatus::Success;
+	return IFSelect_ReturnStatus::IFSelect_RetDone;
 }
 
-ReaderStatus Reader::ReadIGES(const std::string& aFileName)
+IFSelect_ReturnStatus Reader::ReadIGES(const std::string& aFileName)
 {
 	IGESControl_Reader aReader;
 
 	if (aReader.ReadFile(aFileName.c_str()) != IFSelect_RetDone)
 	{
-		return ReaderStatus::FileNotFound;
+		return IFSelect_ReturnStatus::IFSelect_RetError;
 	}
 
 	aReader.TransferRoots();
 	this->aShape = aReader.OneShape();
 
-	return ReaderStatus::Success;
+	return IFSelect_ReturnStatus::IFSelect_RetDone;
 }
 
 std::string Reader::GetFileExtension(const std::string& aFileName)
