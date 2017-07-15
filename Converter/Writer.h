@@ -8,7 +8,7 @@
 class Writer {
 public:
 	Writer();
-	Writer(const TopoDS_Shape&);
+	explicit Writer(const TopoDS_Shape&);
 
 	void UseMirror(void);
 	void SetPrecision(const double&);

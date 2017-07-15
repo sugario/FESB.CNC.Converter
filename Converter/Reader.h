@@ -8,7 +8,7 @@ class Reader
 {
 public:
 	Reader();
-	Reader(const std::string&);
+	explicit Reader(const std::string&);
 
 	IFSelect_ReturnStatus ReadFile(const std::string&);
 
