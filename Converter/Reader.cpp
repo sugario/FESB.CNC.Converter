@@ -4,6 +4,7 @@
 #include <BRepTools.hxx>
 
 #include <IGESControl_Reader.hxx>
+#include <STEPControl_Reader.hxx>
 
 Reader::Reader()
 {
@@ -29,23 +30,20 @@ IFSelect_ReturnStatus Reader::ReadFile(const std::string& aFileName)
 	}
 	else if (extension == "brep")
 	{
-		ReadBREP(aFileName);
+		return ReadBREP(aFileName);
 	}
 	else if (extension == "igs" || extension == "iges")
 	{
-		ReadIGES(aFileName);
+		return ReadIGES(aFileName);
 	}
 	else if (extension == "step" || extension == "stp" || extension == "p21")
 	{
-		//TO BE IMPLEMENTED!
-		return IFSelect_ReturnStatus::IFSelect_RetFail;
+		return ReadSTEP(aFileName);
 	}
 	else
 	{
 		return IFSelect_ReturnStatus::IFSelect_RetError;
 	}
-
-	return IFSelect_ReturnStatus::IFSelect_RetDone;
 }
 
 TopoDS_Shape Reader::GetShape(void)
@@ -72,6 +70,21 @@ IFSelect_ReturnStatus Reader::ReadBREP(const std::string& aFileName)
 IFSelect_ReturnStatus Reader::ReadIGES(const std::string& aFileName)
 {
 	IGESControl_Reader aReader;
+
+	if (aReader.ReadFile(aFileName.c_str()) != IFSelect_RetDone)
+	{
+		return IFSelect_ReturnStatus::IFSelect_RetError;
+	}
+
+	aReader.TransferRoots();
+	this->aShape = aReader.OneShape();
+
+	return IFSelect_ReturnStatus::IFSelect_RetDone;
+}
+
+IFSelect_ReturnStatus Reader::ReadSTEP(const std::string& aFileName)
+{
+	STEPControl_Reader aReader;
 
 	if (aReader.ReadFile(aFileName.c_str()) != IFSelect_RetDone)
 	{

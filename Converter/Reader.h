@@ -17,6 +17,7 @@ public:
 private:
 	IFSelect_ReturnStatus ReadBREP(const std::string&);
 	IFSelect_ReturnStatus ReadIGES(const std::string&);
+	IFSelect_ReturnStatus ReadSTEP(const std::string&);
 
 	std::string GetFileExtension(const std::string&);
 
