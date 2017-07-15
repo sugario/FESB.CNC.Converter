@@ -1,3 +1,6 @@
+#ifndef READER_H
+#define READER_H
+
 #include <iostream>
 
 #include <TopoDS_Shape.hxx>
@@ -29,3 +32,5 @@ private:
 
 	TopoDS_Shape aShape;
 };
+
+#endif // !READER_H
