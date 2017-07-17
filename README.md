@@ -32,3 +32,9 @@ and built using Open CASCADE Technology.*
 ```
 TKBin.lib;TKBinL.lib;TKBinTObj.lib;TKBinXCAF.lib;TKBO.lib;TKBool.lib;TKBRep.lib;TKCAF.lib;TKCDF.lib;TKDCAF.lib;TKernel.lib;TKFeat.lib;TKFillet.lib;TKGeomAlgo.lib;TKGeomBase.lib;TKHLR.lib;TKIGES.lib;TKLCAF.lib;TKMath.lib;TKMesh.lib;TKMeshVS.lib;TKOffset.lib;TKOpenGl.lib;TKPrim.lib;TKService.lib;TKShHealing.lib;TKStd.lib;TKStdL.lib;TKSTEP.lib;TKSTEP209.lib;TKSTEPAttr.lib;TKSTEPBase.lib;TKSTL.lib;TKTObj.lib;TKTopAlgo.lib;TKTopTest.lib;TKV3d.lib;TKVCAF.lib;TKVRML.lib;TKXCAF.lib;TKXDEIGES.lib;TKXDESTEP.lib;TKXMesh.lib;TKXml.lib;TKXmlL.lib;TKXmlTObj.lib;TKXSBase.lib
 ```
+[VC14 dlls and libs built on Win platform](https://1drv.ms/f/s!AuedTnWqA4QygbpjG_No3zPVrXSckA) (Microsoft Windows 10 Pro Build 15064, with Visual Studio 2017 Enterprise - v141 Platform Toolset)
+
+
+
+
+
