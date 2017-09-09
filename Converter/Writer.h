@@ -5,24 +5,26 @@
 
 #include <StlAPI_Writer.hxx>
 
+#include <string>
+
 class Writer {
 public:
-	Writer();
-	explicit Writer(const TopoDS_Shape&);
+    Writer();
+    explicit Writer(const TopoDS_Shape&);
 
-	void UseMirror(void);
-	void SetPrecision(const double&);
-	void SetShape(const TopoDS_Shape&);
-	
-	StlAPI_ErrorStatus WriteToFile(const std::string&);
+    void UseMirror(void);
+    void SetPrecision(const double&);
+    void SetShape(const TopoDS_Shape&);
+
+    StlAPI_ErrorStatus WriteToFile(const std::string&);
 
 private:
-	TopoDS_Shape MakeYOZMirror(const TopoDS_Shape&);
+    TopoDS_Shape MakeYOZMirror(const TopoDS_Shape&);
 
-	bool usingY0ZMirror;
-	double precision;
-	
-	TopoDS_Shape aShape;
+    bool usingY0ZMirror;
+    double precision;
+
+    TopoDS_Shape aShape;
 };
 
-#endif // !WRITER_H
+#endif  // !WRITER_H

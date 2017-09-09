@@ -1,14 +1,17 @@
-#pragma once
+#ifndef CLOCK_H
+#define CLOCK_H
 
 #include <chrono>
 
 class Clock {
 public:
-	Clock();
+    Clock();
 
-	void Start(void);
-	double ElapsedSeconds(void);
+    void Start(void);
+    double ElapsedSeconds(void);
 
 private:
-	std::chrono::time_point<std::chrono::system_clock> StartTime;
+    std::chrono::time_point<std::chrono::system_clock> StartTime;
 };
+
+#endif  // !CLOCK_H
