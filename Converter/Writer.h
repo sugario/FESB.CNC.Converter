@@ -32,7 +32,7 @@
 #include <string>
 
 class Writer {
-public:
+ public:
     Writer();
     explicit Writer(const TopoDS_Shape&);
 
@@ -42,7 +42,7 @@ public:
 
     StlAPI_ErrorStatus WriteToFile(const std::string&);
 
-private:
+ private:
     TopoDS_Shape MakeYOZMirror(const TopoDS_Shape&);
 
     bool usingY0ZMirror;

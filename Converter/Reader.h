@@ -31,7 +31,7 @@
 #include <string>
 
 class Reader {
-public:
+ public:
     Reader();
     explicit Reader(const std::string&);
 
@@ -39,7 +39,7 @@ public:
 
     TopoDS_Shape GetShape();
 
-private:
+ private:
     IFSelect_ReturnStatus ReadBREP(const std::string&);
     IFSelect_ReturnStatus ReadIGES(const std::string&);
     IFSelect_ReturnStatus ReadSTEP(const std::string&);

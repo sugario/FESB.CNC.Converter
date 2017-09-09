@@ -1,3 +1,27 @@
+/*
+*
+* Copyright 2017 Tino Melvan
+*
+* Permission is hereby granted, free of charge, to any person obtaining
+* a copy of this software and associated documentation files (the "Software"),
+* to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense,
+* and/or sell copies of the Software, and to permit persons to whom the
+* Software is furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included
+* in all copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+* OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*
+*/
+
 #include <BRep_Builder.hxx>
 #include <BRepTools.hxx>
 
@@ -6,7 +30,7 @@
 
 #include <string>
 
-#include "Reader.h"
+#include "../Converter/Reader.h"
 
 Reader::Reader() {
     this->aShape.Nullify();
@@ -24,19 +48,15 @@ IFSelect_ReturnStatus Reader::ReadFile(const std::string& aFileName) {
 
     if (extension == "") {
         return IFSelect_ReturnStatus::IFSelect_RetFail;
-    }
-    else if (extension == "brep") {
+    } else if (extension == "brep") {
         return ReadBREP(aFileName);
-    }
-    else if (extension == "igs" || extension == "iges") {
+    } else if (extension == "igs" || extension == "iges") {
         return ReadIGES(aFileName);
-    }
-    else if (extension == "step" ||
+    } else if (extension == "step" ||
         extension == "stp" ||
         extension == "p21") {
         return ReadSTEP(aFileName);
-    }
-    else {
+    } else {
         return IFSelect_ReturnStatus::IFSelect_RetError;
     }
 }
