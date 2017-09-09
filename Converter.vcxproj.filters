@@ -11,6 +11,9 @@
     <Filter Include="Clock">
       <UniqueIdentifier>{1d7ebd7b-4d61-40e8-b5d1-a4a397debb56}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input Parser">
+      <UniqueIdentifier>{fceaea06-1889-457b-9b4d-72bf42006c48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Converter\Reader.cpp">
@@ -25,6 +28,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InputParser\InputParser.cpp">
+      <Filter>Input Parser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Converter\Reader.h">
@@ -35,6 +41,9 @@
     </ClInclude>
     <ClInclude Include="Clock\Clock.h">
       <Filter>Clock</Filter>
+    </ClInclude>
+    <ClInclude Include="InputParser\InputParser.h">
+      <Filter>Input Parser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
