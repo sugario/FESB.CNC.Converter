@@ -33,9 +33,11 @@ class InputParser {
      InputParser(const int&, char **);
      const std::string& GetCommandOption(const std::string&);
      bool CommandOptionExists(const std::string&);
+     bool UsedAllCommands(void);
 
  private:
      std::vector<std::string> aToken;
+     int argcLeft;
 };
 
 #endif  // !INPUTPARSER_H

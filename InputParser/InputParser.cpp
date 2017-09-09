@@ -28,6 +28,8 @@
 #include "../InputParser/InputParser.h"
 
 InputParser::InputParser(const int& argc, char** argv) {
+    this->argcLeft = argc - 1;
+
     for (int i = 1; i < argc; i++) {
         this->aToken.push_back(std::string(argv[i]));
     }
@@ -38,6 +40,7 @@ const std::string& InputParser::GetCommandOption(const std::string& option) {
     itr = std::find(this->aToken.begin(), this->aToken.end(), option);
 
     if (itr != this->aToken.end() && ++itr != this->aToken.end()) {
+        this->argcLeft--;
         return *itr;
     }
 
@@ -46,6 +49,15 @@ const std::string& InputParser::GetCommandOption(const std::string& option) {
 }
 
 bool InputParser::CommandOptionExists(const std::string& option) {
-    return std::find(this->aToken.begin(), this->aToken.end(), option)
-           != this->aToken.end();
+    if (std::find(this->aToken.begin(), this->aToken.end(), option)
+        != this->aToken.end()) {
+        this->argcLeft--;
+        return true;
+    }
+
+    return false;
+}
+
+bool InputParser::UsedAllCommands(void) {
+    return this->argcLeft == 0;
 }
