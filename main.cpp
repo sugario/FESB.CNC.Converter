@@ -1,5 +1,5 @@
-#include <iostream> 
-#include <string> 
+#include <iostream>
+#include <string>
 
 #include "Clock\Clock.h"
 #include "Converter\Reader.h"
@@ -21,8 +21,7 @@ void PrintUsageMessage(void)
 
 int main(int argc, char* argv[])
 {
-    if (argc < 5)
-    {
+    if (argc < 5) {
         std::cout << "\nERROR: Arguments missing\n";
 
         atexit(PrintUsageMessage);
@@ -35,33 +34,24 @@ int main(int argc, char* argv[])
     Clock clock;
     Writer writer;
 
-    for (int i = 1; i < argc; i++)
-    {
+    for (int i = 1; i < argc; i++) {
         std::string currentArgument = argv[i];
 
         if (currentArgument == " ") continue;
 
-        if (currentArgument == "-i" || currentArgument == "--infile")
-        {
+        if (currentArgument == "-i" || currentArgument == "--infile") {
             i = i + 1;
             infile = argv[i];
-        }
-        else if (currentArgument == "-o" || currentArgument == "--outfile")
-        {
+        } else if (currentArgument == "-o" || currentArgument == "--outfile") {
             i = i + 1;
             outfile = argv[i];
-        }
-        else if (currentArgument == "--precision")
-        {
+        } else if (currentArgument == "--precision") {
             i = i + 1;
             double precision;
 
-            try
-            {
+            try {
                 precision = atof(argv[i]);
-            }
-            catch (int e)
-            {
+            } catch(int e) {
                 std::cout << "\nERROR: precision argument not a number";
                 std::cout << "(error: " << e << ")\n";
                 atexit(PrintUsageMessage);
@@ -70,24 +60,19 @@ int main(int argc, char* argv[])
             }
 
             writer.SetPrecision(precision);
-        }
-        else if (currentArgument == "-m")
-        {
+        } else if (currentArgument == "-m") {
             writer.UseMirror();
-        }
-        else if (currentArgument == "-h" || currentArgument == "--help")
-        {
+        } else if (currentArgument == "-h" || currentArgument == "--help") {
             PrintUsageMessage();
 
-            if (i != 2)
-            {
-                std::cout << "Note: Due to involment of help command, only that action will be completed!\n";
+            if (i != 2) {
+                std::cout
+                    << "Note: Due to involment of help command, "
+                       "only that action will be completed!\n";
             }
 
             return EXIT_SUCCESS;
-        }
-        else
-        {
+        } else {
             std::cout << "\nERROR: Invalid arguments\n";
 
             atexit(PrintUsageMessage);
@@ -95,17 +80,16 @@ int main(int argc, char* argv[])
         }
     }
 
-    if (infile == std::string())
-    {
+    if (infile == std::string()) {
         std::cout << "\nERROR: the option '--infile' is required but missing\n";
         atexit(PrintUsageMessage);
 
         return EXIT_FAILURE;
     }
 
-    if (outfile == std::string())
-    {
-        std::cout << "\nERROR: the option '--outfile' is required but missing\n";
+    if (outfile == std::string()) {
+        std::cout
+            << "\nERROR: the option '--outfile' is required but missing\n";
         atexit(PrintUsageMessage);
 
         return EXIT_FAILURE;
@@ -114,16 +98,14 @@ int main(int argc, char* argv[])
     std::cout << "Conversion started:\n\n";
 
     Reader reader;
-    if (reader.ReadFile(infile) != IFSelect_RetDone)
-    {
+    if (reader.ReadFile(infile) != IFSelect_RetDone) {
         std::cout << "Error during file reading\n";
         return EXIT_FAILURE;
     }
 
     writer.SetShape(reader.GetShape());
 
-    if (writer.WriteToFile(outfile) != StlAPI_StatusOK)
-    {
+    if (writer.WriteToFile(outfile) != StlAPI_StatusOK) {
         std::cout << "Error while writting a file\n";
         return EXIT_FAILURE;
     }
