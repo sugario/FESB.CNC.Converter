@@ -13,9 +13,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Converter\Reader.cpp">
       <Filter>Converter</Filter>
     </ClCompile>
@@ -24,6 +21,9 @@
     </ClCompile>
     <ClCompile Include="Clock\Clock.cpp">
       <Filter>Clock</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

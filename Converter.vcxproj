@@ -22,7 +22,7 @@
     <ClCompile Include="Clock\Clock.cpp" />
     <ClCompile Include="Converter\Reader.cpp" />
     <ClCompile Include="Converter\Writer.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Clock\Clock.h" />
