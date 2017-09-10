@@ -22,8 +22,8 @@
 *
 */
 
-#ifndef STLTools_COUNT_TRIANGLES_H
-#define STLTools_COUNT_TRIANGLES_H
+#ifndef STLTOOLS_COUNT_TRIANGLES_H
+#define STLTOOLS_COUNT_TRIANGLES_H
 
 #include <string>
 
@@ -52,4 +52,4 @@ int ReadNumberOfTriangles(const std::string&);
 
 }  // namespace STLTools
 
-#endif  // !STLTools_COUNT_TRIANGLES_H
+#endif  // !STLTOOLS_COUNT_TRIANGLES_H
