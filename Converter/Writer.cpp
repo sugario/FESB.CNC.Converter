@@ -60,6 +60,8 @@ void Writer::SetShape(const TopoDS_Shape& aShape) {
 }
 
 StlAPI_ErrorStatus Writer::WriteToFile(const std::string& aFileName) {
+    printf("[Writer] Trying to write file \"%s\"\n", aFileName.c_str());
+
     if (this->aShape.IsNull()) {
         return StlAPI_ErrorStatus::StlAPI_MeshIsEmpty;
     }
@@ -71,12 +73,15 @@ StlAPI_ErrorStatus Writer::WriteToFile(const std::string& aFileName) {
     aBuilder.Add(aCompound, this->aShape);
 
     if (this->usingY0ZMirror) {
+        printf("[Writer] Appending Y0Z mirror\n");
         TopoDS_Shape aMirroredShape = this->MakeYOZMirror(this->aShape);
         aBuilder.Add(aCompound, aMirroredShape);
     }
 
     StlAPI_Writer myStlWriter;
     BRepMesh_IncrementalMesh(aCompound, this->precision);
+
+    printf("[Writer] Current precision: %lf\n", this->precision);
 
     return myStlWriter.Write(aCompound, aFileName.c_str());
 }
