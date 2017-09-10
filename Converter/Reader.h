@@ -28,6 +28,8 @@
 #include <IFSelect_ReturnStatus.hxx>
 #include <TopoDS_Shape.hxx>
 
+#include <ShapeAnalysis_ShapeContents.hxx>
+
 #include <string>
 
 class Reader {
@@ -37,7 +39,7 @@ class Reader {
 
     IFSelect_ReturnStatus ReadFile(const std::string&);
 
-    TopoDS_Shape GetShape();
+    TopoDS_Shape GetShape(void);
 
  private:
     IFSelect_ReturnStatus ReadBREP(const std::string&);
@@ -45,7 +47,9 @@ class Reader {
     IFSelect_ReturnStatus ReadSTEP(const std::string&);
 
     std::string GetFileExtension(const std::string&);
+    ShapeAnalysis_ShapeContents GetShapeAnalizer(void);
 
+    ShapeAnalysis_ShapeContents analizer;
     TopoDS_Shape aShape;
 };
 

@@ -51,8 +51,7 @@ double StringToDouble(const std::string& strPrecision) {
     return precision;
 }
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
     Clock clock;
     Writer writer;
     InputParser inParser(argc, argv);

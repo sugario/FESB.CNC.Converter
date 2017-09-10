@@ -43,6 +43,8 @@ Reader::Reader(const std::string& aFileName) {
 }
 
 IFSelect_ReturnStatus Reader::ReadFile(const std::string& aFileName) {
+    printf("[Reader] Trying to read file \"%s\"\n", aFileName.c_str());
+
     this->aShape.Nullify();
     std::string extension = GetFileExtension(aFileName);
 
@@ -53,8 +55,8 @@ IFSelect_ReturnStatus Reader::ReadFile(const std::string& aFileName) {
     } else if (extension == "igs" || extension == "iges") {
         return ReadIGES(aFileName);
     } else if (extension == "step" ||
-        extension == "stp" ||
-        extension == "p21") {
+               extension == "stp" ||
+               extension == "p21") {
         return ReadSTEP(aFileName);
     } else {
         return IFSelect_ReturnStatus::IFSelect_RetError;
@@ -66,6 +68,8 @@ TopoDS_Shape Reader::GetShape(void) {
 }
 
 IFSelect_ReturnStatus Reader::ReadBREP(const std::string& aFileName) {
+    printf("[Reader] BREP detected, trying to load entities\n");
+
     std::filebuf aFileBuf;
     std::istream aStream(&aFileBuf);
 
@@ -76,12 +80,19 @@ IFSelect_ReturnStatus Reader::ReadBREP(const std::string& aFileName) {
     BRep_Builder aBuilder;
     BRepTools::Read(this->aShape, aStream, aBuilder);
 
+    this->analizer.Clear();
+    this->analizer.Perform(this->aShape);
+    printf("[Reader] Loaded %d vertecies\n", analizer.NbVertices());
+
     return IFSelect_ReturnStatus::IFSelect_RetDone;
 }
 
 IFSelect_ReturnStatus Reader::ReadIGES(const std::string& aFileName) {
+    printf("[Reader] IGES detected, trying to load entities\n");
+
     IGESControl_Reader aReader;
 
+    printf("[Reader] ");
     if (aReader.ReadFile(aFileName.c_str()) != IFSelect_RetDone) {
         return IFSelect_ReturnStatus::IFSelect_RetError;
     }
@@ -89,10 +100,15 @@ IFSelect_ReturnStatus Reader::ReadIGES(const std::string& aFileName) {
     aReader.TransferRoots();
     this->aShape = aReader.OneShape();
 
+    this->analizer.Clear();
+    this->analizer.Perform(this->aShape);
+
     return IFSelect_ReturnStatus::IFSelect_RetDone;
 }
 
 IFSelect_ReturnStatus Reader::ReadSTEP(const std::string& aFileName) {
+    printf("[Reader] STEP detected, trying to load entities\n");
+
     STEPControl_Reader aReader;
 
     if (aReader.ReadFile(aFileName.c_str()) != IFSelect_RetDone) {
@@ -101,6 +117,10 @@ IFSelect_ReturnStatus Reader::ReadSTEP(const std::string& aFileName) {
 
     aReader.TransferRoots();
     this->aShape = aReader.OneShape();
+
+    this->analizer.Clear();
+    this->analizer.Perform(this->aShape);
+    printf("[Reader] Loaded %d vertecies\n", analizer.NbVertices());
 
     return IFSelect_ReturnStatus::IFSelect_RetDone;
 }
@@ -118,4 +138,8 @@ std::string Reader::GetFileExtension(const std::string& aFileName) {
     }
 
     return extension;
+}
+
+ShapeAnalysis_ShapeContents Reader::GetShapeAnalizer(void) {
+    return this->analizer;
 }
