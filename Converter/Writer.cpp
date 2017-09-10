@@ -41,7 +41,7 @@ Writer::Writer() {
 Writer::Writer(const TopoDS_Shape &aShape) {
     this->aShape = aShape;
 
-    this->precision = 0.0001;
+    this->precision = 0.1;
     this->usingY0ZMirror = false;
 }
 
