@@ -28,6 +28,7 @@
 #include "Converter\Reader.h"
 #include "Converter\Writer.h"
 #include "InputParser\InputParser.h"
+#include "STL Triangle Counter\STLTools_CountTriangles.h";
 
 void PrintUsageMessage(void) {
     printf("\nOptions:\n");
@@ -122,6 +123,9 @@ int main(int argc, char* argv[]) {
     printf("[Converter] Writting done!\n");
     printf("[Clock] Conversion lasted %lf sec\n",
            clock.ElapsedSeconds());
+
+    printf("[Converter] Final STL file has %d triangles\n",
+           STLTools::ReadNumberOfTriangles(outFile));
 
     return EXIT_SUCCESS;
 }

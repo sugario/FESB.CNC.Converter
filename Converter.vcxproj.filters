@@ -14,6 +14,9 @@
     <Filter Include="Input Parser">
       <UniqueIdentifier>{fceaea06-1889-457b-9b4d-72bf42006c48}</UniqueIdentifier>
     </Filter>
+    <Filter Include="STLTools">
+      <UniqueIdentifier>{d70491e4-c7b5-40c3-a1a9-a72f9c3c23c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Converter\Reader.cpp">
@@ -31,6 +34,9 @@
     <ClCompile Include="InputParser\InputParser.cpp">
       <Filter>Input Parser</Filter>
     </ClCompile>
+    <ClCompile Include="STL Triangle Counter\STLTools_CountTriangles.cpp">
+      <Filter>STLTools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Converter\Reader.h">
@@ -44,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="InputParser\InputParser.h">
       <Filter>Input Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="STL Triangle Counter\STLTools_CountTriangles.h">
+      <Filter>STLTools</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

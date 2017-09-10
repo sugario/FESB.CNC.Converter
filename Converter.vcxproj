@@ -24,12 +24,14 @@
     <ClCompile Include="Converter\Writer.cpp" />
     <ClCompile Include="InputParser\InputParser.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="STL Triangle Counter\STLTools_CountTriangles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Clock\Clock.h" />
     <ClInclude Include="Converter\Reader.h" />
     <ClInclude Include="Converter\Writer.h" />
     <ClInclude Include="InputParser\InputParser.h" />
+    <ClInclude Include="STL Triangle Counter\STLTools_CountTriangles.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
