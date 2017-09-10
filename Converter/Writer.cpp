@@ -34,7 +34,7 @@
 
 Writer::Writer() {
     this->aShape.Nullify();
-    this->precision = 0.0001;
+    this->precision = 0.1;
     this->usingY0ZMirror = false;
 }
 
