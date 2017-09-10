@@ -36,8 +36,9 @@ class InputParser {
      bool UsedAllCommands(void);
 
  private:
+     bool Contains(const std::vector<std::string>& vec, const std::string& str);
      std::vector<std::string> aToken;
-     int argcLeft;
+     std::vector<std::string> aUsedToken;
 };
 
 #endif  // !INPUTPARSER_H

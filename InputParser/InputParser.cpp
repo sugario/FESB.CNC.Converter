@@ -28,8 +28,6 @@
 #include "../InputParser/InputParser.h"
 
 InputParser::InputParser(const int& argc, char** argv) {
-    this->argcLeft = argc - 1;
-
     for (int i = 1; i < argc; i++) {
         this->aToken.push_back(std::string(argv[i]));
     }
@@ -40,7 +38,10 @@ const std::string& InputParser::GetCommandOption(const std::string& option) {
     itr = std::find(this->aToken.begin(), this->aToken.end(), option);
 
     if (itr != this->aToken.end() && ++itr != this->aToken.end()) {
-        this->argcLeft--;
+        if (!Contains(this->aUsedToken, *itr)) {
+            this->aUsedToken.push_back(*itr);
+        }
+
         return *itr;
     }
 
@@ -49,9 +50,11 @@ const std::string& InputParser::GetCommandOption(const std::string& option) {
 }
 
 bool InputParser::CommandOptionExists(const std::string& option) {
-    if (std::find(this->aToken.begin(), this->aToken.end(), option)
-        != this->aToken.end()) {
-        this->argcLeft--;
+    if (Contains(this->aToken, option)) {
+        if (!Contains(this->aUsedToken, option)) {
+            this->aUsedToken.push_back(option);
+        }
+
         return true;
     }
 
@@ -59,5 +62,17 @@ bool InputParser::CommandOptionExists(const std::string& option) {
 }
 
 bool InputParser::UsedAllCommands(void) {
-    return this->argcLeft == 0;
+    return this->aToken.size() == this->aUsedToken.size();
+}
+
+bool InputParser::Contains(const std::vector<std::string>& token,
+                           const std::string& argument) {
+    std::vector<std::string>::const_iterator itr;
+    itr = std::find(token.begin(), token.end(), argument);
+
+    if (itr != token.end()) {
+        return true;
+    }
+
+    return false;
 }
