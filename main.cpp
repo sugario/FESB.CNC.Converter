@@ -57,6 +57,11 @@ int main(int argc, char* argv[]) {
     Writer writer;
     InputParser inParser(argc, argv);
 
+    if (argc < 2) {
+        atexit(PrintUsageMessage);
+        return EXIT_SUCCESS;
+    }
+
     if (inParser.CommandOptionExists("-h") ||
         inParser.CommandOptionExists("--help")) {
         if (argc > 2) {
