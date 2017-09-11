@@ -34,7 +34,7 @@
     <ClCompile Include="InputParser\InputParser.cpp">
       <Filter>Input Parser</Filter>
     </ClCompile>
-    <ClCompile Include="STL Triangle Counter\STLTools_CountTriangles.cpp">
+    <ClCompile Include="STLTools\STLTools_CountTriangles.cpp">
       <Filter>STLTools</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,7 +51,7 @@
     <ClInclude Include="InputParser\InputParser.h">
       <Filter>Input Parser</Filter>
     </ClInclude>
-    <ClInclude Include="STL Triangle Counter\STLTools_CountTriangles.h">
+    <ClInclude Include="STLTools\STLTools_CountTriangles.h">
       <Filter>STLTools</Filter>
     </ClInclude>
   </ItemGroup>

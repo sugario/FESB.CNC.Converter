@@ -25,9 +25,9 @@
 #include <fstream>
 #include <string>
 
-#include "../STL Triangle Counter/STLTools_CountTriangles.h";
+#include "../STLTools/STLTools_CountTriangles.h";
 
-namespace STLTools {
+namespace stltools {
 
 bool IsASCII(const std::string& fileName) {
     std::ifstream file(fileName);
@@ -125,7 +125,7 @@ int ReadNumberOfTrianglesFromBinary(const std::string& fileName) {
     if (file.is_open()) {
         file.seekg(80);
         file.read(reinterpret_cast<char*>(&numberOfTriangles),
-            sizeof(numberOfTriangles));
+                  sizeof(numberOfTriangles));
 
         file.close();
     }

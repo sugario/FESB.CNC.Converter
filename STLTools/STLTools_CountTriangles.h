@@ -27,7 +27,7 @@
 
 #include <string>
 
-namespace STLTools {
+namespace stltools {
 
 #define ERROR_WHILE_READING -1;
 
@@ -50,6 +50,6 @@ int ReadNumberOfTrianglesFromBinary(const std::string&);
 
 int ReadNumberOfTriangles(const std::string&);
 
-}  // namespace STLTools
+}  // namespace stltools
 
 #endif  // !STLTOOLS_COUNT_TRIANGLES_H

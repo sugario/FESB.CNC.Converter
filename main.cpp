@@ -24,11 +24,11 @@
 
 #include <string>
 
-#include "Clock\Clock.h"
-#include "Converter\Reader.h"
-#include "Converter\Writer.h"
-#include "InputParser\InputParser.h"
-#include "STL Triangle Counter\STLTools_CountTriangles.h";
+#include "Clock/Clock.h"
+#include "Converter/Reader.h"
+#include "Converter/Writer.h"
+#include "InputParser/InputParser.h"
+#include "STLTools/STLTools_CountTriangles.h"
 
 void PrintUsageMessage(void) {
     printf("\nOptions:\n");
@@ -88,7 +88,7 @@ int main(int argc, char* argv[]) {
     } else if (inParser.CommandOptionExists("--outfile")) {
         outFile = inParser.GetCommandOption("--outfile");
     } else {
-        printf("\Output file name not detected!\n");
+        printf("\nOutput file name not detected!\n");
         return EXIT_FAILURE;
     }
 
@@ -130,7 +130,7 @@ int main(int argc, char* argv[]) {
            clock.ElapsedSeconds());
 
     printf("[Converter] Final STL file has %d triangles\n",
-           STLTools::ReadNumberOfTriangles(outFile));
+           stltools::ReadNumberOfTriangles(outFile));
 
     return EXIT_SUCCESS;
 }
