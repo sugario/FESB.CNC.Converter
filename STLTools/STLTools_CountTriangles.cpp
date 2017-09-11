@@ -25,7 +25,7 @@
 #include <fstream>
 #include <string>
 
-#include "../STLTools/STLTools_CountTriangles.h";
+#include "../STLTools/STLTools_CountTriangles.h"
 
 namespace stltools {
 
@@ -145,4 +145,4 @@ int ReadNumberOfTriangles(const std::string& fileName) {
     }
 }
 
-}  // namespace STLTools
+}  // namespace stltools
