@@ -37,7 +37,9 @@ const std::string& InputParser::GetCommandOption(const std::string& option) {
     std::vector<std::string>::const_iterator itr;
     itr = std::find(this->aToken.begin(), this->aToken.end(), option);
 
-    if (itr != this->aToken.end() && ++itr != this->aToken.end()) {
+    if (itr != this->aToken.end() && (itr + 1) != this->aToken.end()) {
+        itr++;
+
         if (!Contains(this->aUsedToken, *itr)) {
             this->aUsedToken.push_back(*itr);
         }
