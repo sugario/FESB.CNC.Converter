@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Converter", "Converter.vcxproj", "{AB52B46D-3469-4A97-88C9-F29803F4E56F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Converter", "Converter\Converter.vcxproj", "{440B1F9E-1CC1-4890-8AA4-1EAF8688F1E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,16 +13,19 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AB52B46D-3469-4A97-88C9-F29803F4E56F}.Debug|x64.ActiveCfg = Debug|x64
-		{AB52B46D-3469-4A97-88C9-F29803F4E56F}.Debug|x64.Build.0 = Debug|x64
-		{AB52B46D-3469-4A97-88C9-F29803F4E56F}.Debug|x86.ActiveCfg = Debug|Win32
-		{AB52B46D-3469-4A97-88C9-F29803F4E56F}.Debug|x86.Build.0 = Debug|Win32
-		{AB52B46D-3469-4A97-88C9-F29803F4E56F}.Release|x64.ActiveCfg = Release|x64
-		{AB52B46D-3469-4A97-88C9-F29803F4E56F}.Release|x64.Build.0 = Release|x64
-		{AB52B46D-3469-4A97-88C9-F29803F4E56F}.Release|x86.ActiveCfg = Release|Win32
-		{AB52B46D-3469-4A97-88C9-F29803F4E56F}.Release|x86.Build.0 = Release|Win32
+		{440B1F9E-1CC1-4890-8AA4-1EAF8688F1E0}.Debug|x64.ActiveCfg = Debug|x64
+		{440B1F9E-1CC1-4890-8AA4-1EAF8688F1E0}.Debug|x64.Build.0 = Debug|x64
+		{440B1F9E-1CC1-4890-8AA4-1EAF8688F1E0}.Debug|x86.ActiveCfg = Debug|Win32
+		{440B1F9E-1CC1-4890-8AA4-1EAF8688F1E0}.Debug|x86.Build.0 = Debug|Win32
+		{440B1F9E-1CC1-4890-8AA4-1EAF8688F1E0}.Release|x64.ActiveCfg = Release|x64
+		{440B1F9E-1CC1-4890-8AA4-1EAF8688F1E0}.Release|x64.Build.0 = Release|x64
+		{440B1F9E-1CC1-4890-8AA4-1EAF8688F1E0}.Release|x86.ActiveCfg = Release|Win32
+		{440B1F9E-1CC1-4890-8AA4-1EAF8688F1E0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF5C6301-4864-4D2D-8442-FB398911573F}
 	EndGlobalSection
 EndGlobal

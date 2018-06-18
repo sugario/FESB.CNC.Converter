@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{962b01ea-72e7-4bff-b6c5-fe2d092f6794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{d31cbe05-5bef-4363-8e22-5bd684507908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\Clock">
+      <UniqueIdentifier>{793f0b25-2efe-400e-b558-8ed5f1515a4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\InputParser">
+      <UniqueIdentifier>{f848519c-5752-44d5-ae6f-a818e7210a4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\STLTools">
+      <UniqueIdentifier>{23dccc15-f3ce-4bad-bdf5-2950ff5688a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\Converter">
+      <UniqueIdentifier>{6256ddf3-f5b3-47ad-ab9a-05daf1c9bd52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Clock">
+      <UniqueIdentifier>{8b50dacd-6974-49e6-9cd3-729092e9c19a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\InputParser">
+      <UniqueIdentifier>{78d82001-7707-4288-8712-762b3ddaa5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Converter">
+      <UniqueIdentifier>{47446554-90ae-4151-ba6e-9161fd590b8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\STLTools">
+      <UniqueIdentifier>{855f3253-86b9-4569-a179-bbdb5b91c2c8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clock\Clock.cpp">
+      <Filter>src\Clock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputParser\InputParser.cpp">
+      <Filter>src\InputParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Converter\Reader.cpp">
+      <Filter>src\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Converter\Writer.cpp">
+      <Filter>src\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\STLTools\STLTools_CountTriangles.cpp">
+      <Filter>src\STLTools</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\Clock\Clock.h">
+      <Filter>inc\Clock</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\InputParser\InputParser.h">
+      <Filter>inc\InputParser</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Converter\Reader.h">
+      <Filter>inc\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\STLTools\STLTools_CountTriangles.h">
+      <Filter>inc\STLTools</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Converter\StlAPI_ErrorStatus.h">
+      <Filter>inc\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Converter\Writer.h">
+      <Filter>inc\Converter</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_TestModels\asahi.brep">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\bearing.iges">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\bottle.brep">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\Box.brep">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\containership-2m.igs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\halfPyramid.iges">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\hammer.brep">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\hammer.iges">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\linkrods.step">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\MAT.brep">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\Pump_Nut.brep">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\Pump_TopCover.brep">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\screw.step">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\shell1.brep">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\skiff-2m.igs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\wedge_ok.brep">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="_TestModels\wigley-4m.igs">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
